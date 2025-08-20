@@ -17,22 +17,22 @@ cat > /workspace/.m2/settings.xml <<"EOF"
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>snapshot-repository</id>
+      <id>snapshot-private-taiwan</id>
       <username>oauth2accesstoken</username>
       <password>__ACCESS_TOKEN__</password>
     </server>
     <server>
-      <id>release-repository</id>
+      <id>release-private-taiwan</id>
       <username>oauth2accesstoken</username>
       <password>__ACCESS_TOKEN__</password>
     </server>    
     <server>
-      <id>maven-central-repository</id>
+      <id>maven-central-taiwan</id>
       <username>oauth2accesstoken</username>
       <password>__ACCESS_TOKEN__</password>
     </server>    
     <server>
-      <id>maven-central-plugin-repository</id>
+      <id>maven-central-plugin-taiwan</id>
       <username>oauth2accesstoken</username>
       <password>__ACCESS_TOKEN__</password>
     </server>    
