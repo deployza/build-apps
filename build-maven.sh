@@ -10,56 +10,7 @@ mkdir -p /workspace/.m2
 
 #Create settings.xml
 
-cat > /workspace/.m2/settings.xml <<"EOF"
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <servers>
-    <server>
-      <id>private-snapshot-taiwan</id>
-      <username>oauth2accesstoken</username>
-      <password>__ACCESS_TOKEN__</password>
-    </server>
-    <server>
-      <id>private-release-taiwan</id>
-      <username>oauth2accesstoken</username>
-      <password>__ACCESS_TOKEN__</password>
-    </server>    
-    <server>
-      <id>maven-central-taiwan</id>
-      <username>oauth2accesstoken</username>
-      <password>__ACCESS_TOKEN__</password>
-    </server>    
-    <server>
-      <id>maven-central-plugin-taiwan</id>
-      <username>oauth2accesstoken</username>
-      <password>__ACCESS_TOKEN__</password>
-    </server>    
-  </servers>
-  
-  <profiles>
-    <profile>
-      <id>use-private-repositories</id>
-      <repositories>
-        <repository>
-          <id>private-release-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-release-taiwan</url>
-        </repository>
-        <repository>
-          <id>private-snapshot-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-snapshot-taiwan</url>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
-
-  <activeProfiles>
-    <activeProfile>use-private-repositories</activeProfile>
-  </activeProfiles>  
-</settings>
-
-EOF
+cp ./build-scripts/maven-settings.xml ./workspace/.m2/settings.xml
 
 #get ACCESS Token
 ACCESS_TOKEN=$(gcloud auth print-access-token)
