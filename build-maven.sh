@@ -53,6 +53,9 @@ echo "***** configuring version.txt"
 
 #Get build version and put in a file
 VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+
+echo "***** step 09"
+
 echo "VERSION=$VERSION" >> /workspace/version.txt
 
 
