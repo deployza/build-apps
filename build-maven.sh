@@ -23,12 +23,9 @@ sed -i "s|__ACCESS_TOKEN__|${ACCESS_TOKEN}|" /workspace/.m2/settings.xml
 echo "***** configuring version.txt"
 
 #Get build version and put in a file
-#VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
 
-echo "***** step 09"
-
-#echo "VERSION=$VERSION" >> /workspace/version.txt
-
+echo "VERSION=$VERSION" >> /workspace/version.txt
 
 # CONFIGURE BITBUCKET CREDENTIALS
 
@@ -41,18 +38,13 @@ BITBUCKET_TOKEN="$(gcloud secrets versions access latest --secret=bitbucket-admi
 git config --global credential.helper 'store --file=/workspace/.git-credentials'
 #git config --global url."https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org".insteadOf "https://bitbucket.org"
 
-echo "***** step 10"
 
 # Add the credentials to the file
 echo "https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org" > /workspace/.git-credentials
 
-echo "***** step 11"
-
 # RUN MAVEN
 echo "***** runing maven"
 mvn -B -s /workspace/.m2/settings.xml -Dmaven.repo.local=/workspace/.m2 clean deploy
-
-echo "***** step 12"
 
 #TAG SOURCE CODE
 
@@ -60,8 +52,8 @@ echo "***** tagging source code"
 #source /workspace/version.txt
 git config user.email "cloudbuild@ydeployza.com"
 git config user.name "Cloud Build"
-#git tag -a "${VERSION}" -m "Release ${VERSION}"
-#git push origin "${VERSION}" --force
+git tag -a "${VERSION}" -m "Release ${VERSION}"
+git push origin "${VERSION}" --force
 
 
 
