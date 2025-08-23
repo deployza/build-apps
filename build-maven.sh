@@ -10,7 +10,7 @@ mkdir -p /workspace/.m2
 
 #Create settings.xml
 
-cp ./build-scripts/maven-settings.xml ./workspace/.m2/settings.xml
+cp ./build-scripts/maven-settings.xml /workspace/.m2/settings.xml
 
 #get ACCESS Token
 ACCESS_TOKEN=$(gcloud auth print-access-token)
