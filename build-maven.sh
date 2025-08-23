@@ -52,11 +52,11 @@ sed -i "s|__ACCESS_TOKEN__|${ACCESS_TOKEN}|" /workspace/.m2/settings.xml
 echo "***** configuring version.txt"
 
 #Get build version and put in a file
-VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+#VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
 
 echo "***** step 09"
 
-echo "VERSION=$VERSION" >> /workspace/version.txt
+#echo "VERSION=$VERSION" >> /workspace/version.txt
 
 
 # CONFIGURE BITBUCKET CREDENTIALS
@@ -86,11 +86,11 @@ echo "***** step 12"
 #TAG SOURCE CODE
 
 echo "***** tagging source code"
-source /workspace/version.txt
+#source /workspace/version.txt
 git config user.email "cloudbuild@ydeployza.com"
 git config user.name "Cloud Build"
-git tag -a "${VERSION}" -m "Release ${VERSION}"
-git push origin "${VERSION}" --force
+#git tag -a "${VERSION}" -m "Release ${VERSION}"
+#git push origin "${VERSION}" --force
 
 
 
