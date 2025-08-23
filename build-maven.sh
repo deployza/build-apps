@@ -37,6 +37,26 @@ cat > /workspace/.m2/settings.xml <<"EOF"
       <password>__ACCESS_TOKEN__</password>
     </server>    
   </servers>
+  
+  <profiles>
+    <profile>
+      <id>use-private-repositories</id>
+      <repositories>
+        <repository>
+          <id>private-release-taiwan</id>
+          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-release-taiwan</url>
+        </repository>
+        <repository>
+          <id>private-snapshot-taiwan</id>
+          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-snapshot-taiwan</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>use-private-repositories</activeProfile>
+  </activeProfiles>  
 </settings>
 
 EOF
