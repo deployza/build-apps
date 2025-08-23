@@ -23,6 +23,7 @@ sed -i "s|__ACCESS_TOKEN__|${ACCESS_TOKEN}|" /workspace/.m2/settings.xml
 echo "***** configuring version.txt"
 
 #Get build version and put in a file
+mvn help:evaluate -Dexpression=project.version -q -DforceStdout
 VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
 
 echo "VERSION=$VERSION" >> /workspace/version.txt
