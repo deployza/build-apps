@@ -22,8 +22,9 @@ echo "VERSION=$VERSION" >> /workspace/version.txt
 
 # CONFIGURE GITHUB CREDENTIALS
 echo "***** configuring .git-credentials"
-# Cloud Build's GitHub (Git) connector stores the OAuth token in this secret.
-GITHUB_TOKEN="$(gcloud secrets versions access latest --secret=github-github-oauthtoken-fd49dd)"
+# The connector's OAuth token (github-github-oauthtoken-fd49dd) is read-only and
+# cannot push. Use a fine-grained PAT with Contents:write for tagging instead.
+GITHUB_TOKEN="$(gcloud secrets versions access latest --secret=deployza-github-fine-grained-token)"
 
 # Configure the credential helper to use a file-backed store
  # The syntax is https://<username>:<token>@<host>
