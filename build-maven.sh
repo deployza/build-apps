@@ -20,6 +20,9 @@ VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout -s /wo
 
 echo "VERSION=$VERSION" >> /workspace/version.txt
 
+cat /workspace/version.txt
+cat /workspace/.m2/settings.xml
+
 # CONFIGURE GITHUB CREDENTIALS
 echo "***** configuring .git-credentials"
 # The connector's OAuth token (github-github-oauthtoken-fd49dd) is read-only and
