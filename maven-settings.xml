@@ -22,9 +22,24 @@
       <id>maven-central-plugin-taiwan</id>
       <username>oauth2accesstoken</username>
       <password>__ACCESS_TOKEN__</password>
-    </server>    
+    </server>
+    <server>
+      <!-- Deploy credential only. The repository is public (allUsers has
+           roles/artifactregistry.reader), so no <server> entry is needed to
+           consume it — only to push to it. Not currently used for deploys —
+           see the comment on public_release in artifact-registry.tf. -->
+      <id>public-release-taiwan</id>
+      <username>oauth2accesstoken</username>
+      <password>__ACCESS_TOKEN__</password>
+    </server>
+    <server>
+      <!-- Deploy credential only, same reasoning as public-release-taiwan above. -->
+      <id>public-snapshot-taiwan</id>
+      <username>oauth2accesstoken</username>
+      <password>__ACCESS_TOKEN__</password>
+    </server>
   </servers>
-  
+
   <profiles>
     <profile>
       <id>use-private-repositories</id>
@@ -39,9 +54,23 @@
         </repository>
       </repositories>
     </profile>
+    <profile>
+      <id>use-public-repositories</id>
+      <repositories>
+        <repository>
+          <id>public-release-taiwan</id>
+          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/public-release-taiwan</url>
+        </repository>
+        <repository>
+          <id>public-snapshot-taiwan</id>
+          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/public-snapshot-taiwan</url>
+        </repository>
+      </repositories>
+    </profile>
   </profiles>
 
   <activeProfiles>
     <activeProfile>use-private-repositories</activeProfile>
-  </activeProfiles>  
+    <activeProfile>use-public-repositories</activeProfile>
+  </activeProfiles>
 </settings>
