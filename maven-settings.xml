@@ -59,11 +59,11 @@
       <repositories>
         <repository>
           <id>public-release-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/public-release-taiwan</url>
+          <url>https://asia-east1-maven.pkg.dev/dz-builds/public-release-taiwan</url>
         </repository>
         <repository>
           <id>public-snapshot-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/public-snapshot-taiwan</url>
+          <url>https://asia-east1-maven.pkg.dev/dz-builds/public-snapshot-taiwan</url>
         </repository>
       </repositories>
     </profile>
