@@ -46,11 +46,11 @@
       <repositories>
         <repository>
           <id>private-release-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-release-taiwan</url>
+          <url>https://asia-east1-maven.pkg.dev/dz-builds/private-release-taiwan</url>
         </repository>
         <repository>
           <id>private-snapshot-taiwan</id>
-          <url>https://asia-east1-maven.pkg.dev/tools-tech-463909/private-snapshot-taiwan</url>
+          <url>https://asia-east1-maven.pkg.dev/dz-builds/private-snapshot-taiwan</url>
         </repository>
       </repositories>
     </profile>
