@@ -10,7 +10,7 @@ Guidance for Claude Code when working in this repository.
 > **If that path does not exist, you have not cloned `build-docs` yet — stop and
 > clone it first** (it sits next to this repo under `Build/`):
 > ```bash
-> git clone https://bitbucket.org/deployza/build-docs.git
+> git clone https://github.com/deployza/build-docs.git
 > ```
 > Without it you are missing the cross-repo context.
 
@@ -32,14 +32,13 @@ steps live here once, not copied per project.
 ## Gotchas
 
 - This repo was renamed (`build-scripts` → `build-app-scripts` → `build-apps`).
-  In-workspace callers (e.g. `build-parent-pom/cloudbuild.yaml`) now clone
-  `build-apps`; the upstream repo must be renamed to match. Watch for any
-  out-of-workspace callers still using an old name.
+  Callers (e.g. `build-parent-pom/cloudbuild.yaml`) clone
+  `https://github.com/deployza/build-apps.git`. Watch for any out-of-workspace
+  callers still using an old name.
 - Source is on GitHub via Cloud Build's Git connector (browser OAuth). The
-  connector's token (`github-github-oauthtoken-fd49dd`) is read-only and cannot
-  push — pushing tags with it returns HTTP 403. So tagging uses a separate
-  fine-grained PAT (Contents:write) stored in
-  `deployza-github-fine-grained-token`. That PAT expires (≤1 year) and must be
-  rotated. The old `bitbucket-admin-api-token`
-  secret is no longer used by this script.
+  connector's token (`deployza-github-github-oauthtoken-f606bd` in `dz-builds`)
+  is read-only and cannot push — pushing tags with it returns HTTP 403. So
+  tagging uses a separate fine-grained PAT (Contents:write) stored in
+  `deployza-github-fine-grained-token` (also in `dz-builds`). That PAT expires
+  (≤1 year) and must be rotated.
 - Secrets come from Secret Manager; never hardcode tokens here.

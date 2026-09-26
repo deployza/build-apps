@@ -22,15 +22,15 @@ echo "VERSION=$VERSION" >> /workspace/version.txt
 
 # CONFIGURE GITHUB CREDENTIALS
 echo "***** configuring .git-credentials"
-# The connector's OAuth token (github-github-oauthtoken-fd49dd) is read-only and
+# The connector's OAuth token (deployza-github-github-oauthtoken-f606bd) is read-only and
 # cannot push. Use a fine-grained PAT with Contents:write for tagging instead.
 GITHUB_TOKEN="$(gcloud secrets versions access latest --secret=deployza-github-fine-grained-token)"
 
 # Configure the credential helper to use a file-backed store
- # The syntax is https://<username>:<token>@<host>
 git config --global credential.helper 'store --file=/workspace/.git-credentials'
 
 # Add the credentials to the file
+# The syntax is https://<username>:<token>@<host>
 echo "https://x-access-token:${GITHUB_TOKEN}@github.com" > /workspace/.git-credentials
 
 # RUN MAVEN
