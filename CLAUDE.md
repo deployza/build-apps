@@ -5,7 +5,7 @@ Guidance for Claude Code when working in this repository.
 > ## 📖 Read the architecture docs first
 > The overall Cloud Build / deploy / Terraform architecture lives in the
 > **`build-docs`** repo, cloned as a sibling of this one:
-> [`../build-docs/README.md`](../build-docs/README.md).
+> [`../build-docs/prompts/overview.md`](../build-docs/prompts/overview.md).
 >
 > **If that path does not exist, you have not cloned `build-docs` yet — stop and
 > clone it first** (it sits next to this repo under `Build/`):
@@ -13,6 +13,15 @@ Guidance for Claude Code when working in this repository.
 > git clone https://github.com/deployza/build-docs.git
 > ```
 > Without it you are missing the cross-repo context.
+
+## Standards and the check
+
+This is an `ops` repo (`dz-project.yaml`): ai-harness's `ops-standards` rules (`OPS-`)
+apply, with its general and security rules, and `build-docs`' design rules (`BLD-`),
+which it names under `designs:`. They cover secrets, cloud commands, installing and
+shell scripts across the `Build/` repos; this file keeps only what's true of this repo.
+**The check** is `bash check.sh` (`commands.build`): `build-maven.sh` and
+`maven-settings.xml` parse. It runs offline and writes nothing.
 
 ## What this repo is
 
@@ -41,4 +50,4 @@ steps live here once, not copied per project.
   tagging uses a separate fine-grained PAT (Contents:write) stored in
   `deployza-github-fine-grained-token` (also in `dz-builds`). That PAT expires
   (≤1 year) and must be rotated.
-- Secrets come from Secret Manager; never hardcode tokens here.
+- Secrets come from Secret Manager; never hardcode tokens here (OPS-01).
