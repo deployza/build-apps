@@ -3,14 +3,14 @@
 Guidance for Claude Code when working in this repository.
 
 > ## 📖 Read the architecture docs first
-> The overall Cloud Build / deploy / Terraform architecture is ai-blueprints'
-> **`build`** area: `ai-blueprints:docs/design/build/overview.md`, read with
+> The overall Cloud Build / deploy / Terraform architecture is design-platform's
+> **`build`** area: `design-platform:docs/design/build/overview.md`, read with
 > dz-context's `read_file`.
 
 ## Standards and the check
 
 This is an `ops` repo (`dz/project.yaml`): ai-harness's `ops-standards` rules (`OPS-`)
-apply, with its general and security rules, and ai-blueprints' `build` design rules
+apply, with its general and security rules, and design-platform's `build` design rules
 (`BLD-`), which it names under `designs:`. They cover secrets, cloud commands, installing and
 shell scripts across the `Build/` repos; this file keeps only what's true of this repo.
 **The check** is `bash check.sh` (`commands.build`): `build-maven.sh` and
