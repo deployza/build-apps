@@ -5,6 +5,6 @@
 # stacks and publishes nothing; its rules are ai-harness's ops-standards.
 name: build-apps
 kind: ops
-designs: [design-platform/build]    # the design of the build and operations
+designs: [design-platform, design-platform/build]    # the factory's design; the design of the build and operations
 commands:
   build: bash check.sh            # its own check: offline, and it writes nothing
