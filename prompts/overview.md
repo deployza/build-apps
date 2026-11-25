@@ -12,7 +12,9 @@ time.
 ## Where it runs
 
 In Cloud Build, in the `maven-docker` image: each Java project's `cloudbuild.yaml` clones
-this repo and runs `build-maven.sh` (`build-parent-pom`'s does).
+this repo and runs `build-maven.sh` (`build-parent-pom`'s does). Cloud Build alone publishes
+releases; a developer publishes a `-SNAPSHOT` from their own machine, as
+`docs/publish-a-snapshot.md` says.
 
 ## How it fits
 

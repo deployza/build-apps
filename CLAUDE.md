@@ -30,6 +30,9 @@ steps live here once, not copied per project.
   pushes the tag to `github.com`.
 - `maven-settings.xml` — Artifact Registry Maven server auth; the
   `__ACCESS_TOKEN__` placeholder is replaced at build time.
+- `docs/publish-a-snapshot.md` — the developers' guide: publishing a `-SNAPSHOT`
+  from their own machine with their gcloud token, and naming it in a target. A
+  laptop never uses `maven-settings.xml`.
 
 ## Gotchas
 
