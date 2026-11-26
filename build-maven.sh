@@ -40,7 +40,7 @@ mvn -B -s /workspace/.m2/settings.xml -Dmaven.repo.local=/workspace/.m2 clean de
 #TAG SOURCE CODE
 echo "***** tagging source code"
 source /workspace/version.txt
-git config user.email "cloudromilbuild@ydeployza.com"
+git config user.email "cloudbuild@deployza.com"
 git config user.name "Cloud Build"
 git tag -a "${VERSION}" -m "Release ${VERSION}"
 git push origin "${VERSION}" --force
