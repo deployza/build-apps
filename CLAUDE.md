@@ -2,10 +2,10 @@
 
 Guidance for Claude Code when working in this repository.
 
-> ## 📖 Read the architecture docs first
-> The overall Cloud Build / deploy / Terraform architecture is design-platform's
-> **`build`** area: `design-platform:docs/design/build/overview.md`, read with
-> dz-context's `read_file`.
+Read the architecture docs first. `dz/project.yaml` names design-platform as a whole (the
+factory's design) and its `build` area, which holds the Cloud Build, deploy and Terraform
+architecture: `design-platform:docs/design/build/overview.md`, read with dz-context's
+`read_file`.
 
 ## Standards and the check
 
@@ -38,8 +38,9 @@ steps live here once, not copied per project.
 
 - This repo was renamed (`build-scripts` → `build-app-scripts` → `build-apps`).
   Callers (e.g. `build-parent-pom/cloudbuild.yaml`) clone
-  `https://github.com/deployza/build-apps.git`. Watch for any out-of-workspace
-  callers still using an old name.
+  `https://github.com/deployza/build-apps.git`, but two still clone
+  `https://bitbucket.org/deployza/build-scripts.git`: `infra-zookeeper`'s and
+  `deployza-spring-routing`'s `cloudbuild.yaml`. Changing them is up to their owners.
 - Source is on GitHub via Cloud Build's Git connector (browser OAuth). The
   connector's token (`deployza-github-github-oauthtoken-f606bd` in `dz-builds`)
   is read-only and cannot push — pushing tags with it returns HTTP 403. So

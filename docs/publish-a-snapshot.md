@@ -98,8 +98,7 @@ build resolves everything straight from Artifact Registry. The grants are build-
 
 **Why a token, not the Artifact Registry wagon:** the token is how Cloud Build signs in
 (BLD-5), so a laptop and a build share the same `<server>` ids and URLs, and no project's
-POM needs a build extension. The route was proven on 2026-11-23, when dz-context's tarball
-was published to `private-snapshot-taiwan` and downloaded again with it.
+POM needs a build extension.
 
 ## Publishing a snapshot
 
@@ -126,9 +125,9 @@ A host deploys what its target in the release bucket, `gs://dz-builds-releases`,
 bucket's working copy is build-ops-data, whose `CLAUDE.md` (_How it's used_) has the steps
 and the sync commands.
 
-- **The target already names this `-SNAPSHOT`:** push the host from build-ops
-  (`ansible-playbook playbooks/<host>.yml --tags <app>`). A `-SNAPSHOT` version deploys its
-  newest build, and the deploy log records which one it got.
+- **The target already names this `-SNAPSHOT`:** push the host from build-ops' `ansible/`
+  folder (`cd ansible && ansible-playbook playbooks/<host>.yml --tags <app>`). A `-SNAPSHOT`
+  version deploys its newest build, and the deploy log records which one it got.
 - **A new `-SNAPSHOT` version:** add `versions/<app>/<version>/` in build-ops-data, with its
   `version.properties` and full `templates/` (BLD-25), and change the app's line in
   `vm-targets/<host>/target.properties`, with the app's files if the format changed. Sync

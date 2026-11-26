@@ -18,5 +18,6 @@ releases; a developer publishes a `-SNAPSHOT` from their own machine, as
 
 ## How it fits
 
-It is the build step of the design's build → deploy → infra flow: the WARs it deploys to
-Artifact Registry are what `build-ops` installs on a host.
+It is the build step in design-platform's `build` area. It publishes WARs and libraries to
+Artifact Registry: `build-ops` installs the WARs on a host, and other projects' builds use
+the libraries.
